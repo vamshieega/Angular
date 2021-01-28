@@ -1,0 +1,35 @@
+ .example-container {
+   
+  height: 600px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+} 
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;  
+} 
+.example-sidenav {
+  position:fixed;
+  width: 440px;  
+  padding: 50px;
+  height: 700px;
+}
+ 
+  .btn4 {
+    
+  display:block;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  outline: none;
+  background-color: transparent;
+  border-color: transparent;
+  
+}  
+.car{
+  margin-left: 200px;
+} 
+.settable{
+margin-left: 110px;
+ 
+}

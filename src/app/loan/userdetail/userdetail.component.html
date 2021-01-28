@@ -1,0 +1,92 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
+    <button type="button" (click)="reset();" (click)="drawer.toggle()" class="btn">x </button>
+    <form *ngIf="showlocation">
+      <h5>Search Country Name </h5>
+      <input  type="text" #country [(ngModel)]="_country" name="_country" (keyup)="search(country.value)">
+      <button (click)="hidelocation();" >Confirm</button>
+      <mat-option *ngFor="let x of results" [value]="x">
+        <div (click)=" _country=x.result">{{ x.result}}</div>
+      </mat-option>
+    </form>
+    <div *ngIf="showuser">
+      <h4>{{ sidename }}</h4>
+      <p>{{ sideinfo }}</p>
+      <div class="container">
+        <form #userinfo="ngForm" (ngSubmit)="userdetails(userinfo);">
+          <div class="form-group">
+            <label for="exampleInputEmail1"><small>FULL NAME*</small></label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              name="username1" placeholder="Full Name" ngModel required #username1="ngModel">
+            <span class="form-text text-muted" *ngIf="username1.touched && !username1.valid"><small style="color: red;">
+                Name Required </small></span>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1"><small>CONTACT NUMBER*</small></label>
+            <input type="text"  class="form-control" id="exampleInputPassword1"
+              pattern="[0-9]{10}" placeholder="Contact Number" minlength="10" maxlength="10" name="mobno" ngModel
+              required #mobno="ngModel">
+              <div *ngIf="mobno.touched" style="color: red;">
+                <small *ngIf="mobno.errors?.required">
+                   mobile number required 
+                </small>
+                <small *ngIf="mobno.errors?.pattern">
+                  Enter Valid mobile number
+                </small>
+              </div>
+            <!-- <span *ngIf="mobno.touched && !mobno.valid"><small style="color: red;">Valid Number</small></span> -->
+          </div>
+          <button type="submit" class="btn btn-primary"
+            style="background-color: red; width: 310px; margin-top: 160px; position: fixed;"
+            [disabled]="!userinfo.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="showmail">
+      <h3>Thank you {{ names }}!</h3>
+      <h5>{{ info }}</h5>
+      <p>{{mailinfo}}</p>
+      <form #mailform="ngForm" (ngSubmit)="maildetails(mailform);">
+        <div class="form-group">
+          <label for="exampleInputPassword2"><small>EMAIL-ID</small></label><br>
+          <input type="email" name="mailid" ngModel placeholder="E-mail" #mailid="ngModel"
+          class="form-control"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          <br />
+          <div *ngIf="mailid.touched" style="color: red;">
+            <small *ngIf="mailid.errors?.required">
+              Email is a required field!
+            </small>
+            <small *ngIf="mailid.errors?.pattern">
+              This is not a valid Email!!!
+            </small>
+          </div>
+          <br /><br />
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="drawer.toggle()"
+          style="background-color: red; width: 310px; margin-top: 140px; position: fixed;"
+          [disabled]="!mailid.valid">Submit</button>
+      </form>
+    </div>
+  </mat-drawer>
+<!-- 
+  <a class="button" routerLink="/crisis-list" routerLinkActive="activebutton">Crisis Center</a> |
+  <a class="button" routerLink="/heroes-list" routerLinkActive="activebutton">Heroes</a>
+   -->
+  <div class="example-sidenav-content">
+    <table class="car">
+      <img src="\assets\images\sxia.jpg" width="270px" height="160px">
+    </table>
+    <table class="settable"> 
+        <tr><td>Ex-Showroom Price</td> &nbsp; <td>₹ 6,79,000</td>   </tr>  <br>  
+        <tr><td>RTO</td> &nbsp; <td>₹  49,000</td></tr> <br>
+        <tr><td>Statutory Charge</td> &nbsp; <td>₹ 4,000</td> </tr><br>
+         
+        <tr><td>Insurance</td> &nbsp; <td>₹ 31,000</td> </tr><br>
+        <tr><td>Fast Tag</td> &nbsp; <td>₹ 500</td>  </tr><br>
+        <tr><td>On Road Price in Delhi </td> &nbsp; <td>₹ 7,64,680</td>  </tr><br>
+      </table> 
+     <button type="button" (click)="reset()" mat-button (click)="drawer.toggle()"
+      style="  margin-left: -250px; background-color: red; color: white; width: 250px;height: 40px; margin-bottom:  -300px;"> Get January Offers
+    </button>
+  </div>
+</mat-drawer-container>

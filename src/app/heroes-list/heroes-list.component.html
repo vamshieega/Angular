@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand"   routerLink=""  >CARWALE</a>
+  <button class="navbar-toggler" type="button"  (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" 
+  aria-controls="navbarSupportedContent" > 
+   <span class="navbar-toggler-icon"></span> </button> 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed" >
+    <ul class="navbar-nav mr-auto"> 
+      <li class="dropdown">
+        <a class="dropbtn nav-link" routerLink="hundai"   style="margin-left: 200px; color: black ; " (click)="nexon();" >Tata Nexon</a>
+        <div class="dropdown-content"> 
+          <table class="settable"> 
+              <tr><td>Features</td></tr><br>  
+              <tr><td>Left Blind Spot</td></tr><br> 
+              <tr><td>Left Wing Mirror</td></tr>
+           </table>
+           <table class="settable1"> 
+            <tr><td>Right Wing Mirror</td></tr><br>  
+            <tr><td>Right Blind Spot.</td></tr><br> 
+            <tr><td>Price of a car</td></tr>
+         </table>
+         <table class="imageset">  
+          <img src="\assets\images\color-car-green.png " width="300px" height="115px">
+         </table> 
+        </div>
+      </li> 
+      <li class="dropdown1">
+        <a class="dropbtn1 nav-link" routerLink="hundai" (click)="desire();" style="margin-left: 200px;  color: black " >Shift Desire</a>
+        <div class="dropdown-content1"> 
+          <table class="settable"> 
+              <tr><td>Features</td></tr><br>  
+              <tr><td>Auto Light</td></tr><br> 
+              <tr><td>Mud Guard</td></tr>
+           </table>
+           <table class="settable1"> 
+            <tr><td>Tube Less Tire</td></tr><br>  
+            <tr><td>Shift Class</td></tr><br> 
+         </table>
+         <table class="imageset">
+          <img src="\assets\images\shift.png " width="270px" height="160px">
+         </table>          
+        </div>
+      </li> <li class="nav-item active">
+        <a class="nav-link" routerLink="hundai/aggrid" style="margin-left: 200px;" >user info</a>
+      </li> 
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <img src="\assets\images\location-outline.svg " width="40px" height="35px">  
+    <img src="\assets\images\person-outline.svg " width="40px" height="35px">  
+  </div>
+</nav>
+
+
+ 
